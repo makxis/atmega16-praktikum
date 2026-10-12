@@ -1,0 +1,10 @@
+{
+ "src": "code/06-preryvaniya/int2_led.c",
+ "dst": "06-preryvaniya/int2_led__noflag.c",
+ "replace": [
+  [
+   "GIFR=(1<<INTF2);                        // 3) смена ISC2 могла поставить флаг - сбрасываем записью 1",
+   "/* GIFR=(1<<INTF2); */                  // мутант: флаг после смены ISC2 не сброшен"
+  ]
+ ]
+}

@@ -1,0 +1,1 @@
+{"src": "code/05-indikator/shag4.c", "dst": "05-indikator/shag4__noocr.c", "replace": [["OCR1A=31249;                            // Timer1 считает 0..31249: 31250 тиков по 32 мкс = 1 с", "//OCR1A=31249;                          // мутант: OCR1A не задан (как в Shasi.c)"]]}

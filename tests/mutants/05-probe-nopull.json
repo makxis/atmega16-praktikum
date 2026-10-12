@@ -1,0 +1,1 @@
+{"src": "code/05-indikator/probe.c", "dst": "05-indikator/probe__nopull.c", "replace": [["PORTC=0x02;                             // подтяжка на PC1: отпущена = 1, нажата = 0", "PORTC=0x00;                             // мутант: подтяжки на PC1 нет"]]}

@@ -1,0 +1,45 @@
+# Проверка курса на каждый push и pull request: сборка всех программ avr-gcc под ATmega16
+# (0 ошибок, 0 предупреждений), логика программ на ПК, тексты и ссылки. Всё делает tests/run.sh.
+name: CI
+
+on:
+  push:
+    branches: ['**']        # теги v* проверяет release.yml
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Установить avr-gcc и avr-libc
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-avr avr-libc binutils-avr
+
+      - name: Версии инструментов
+        run: |
+          avr-gcc --version | head -n 1
+          gcc --version | head -n 1
+          python3 --version
+
+      - name: Тесты (sh tests/run.sh)
+        env:
+          MODE: native
+        run: sh tests/run.sh
+
+      - name: Проверить сборку zip в Windows-1251
+        run: python3 tools/make_zip.py "ci-${GITHUB_SHA::7}"
+
+      - name: Сохранить zip (артефакт сборки)
+        uses: actions/upload-artifact@v6
+        with:
+          name: atmega16-praktikum-cp1251
+          path: dist/atmega16-praktikum-cp1251.zip
+          retention-days: 14

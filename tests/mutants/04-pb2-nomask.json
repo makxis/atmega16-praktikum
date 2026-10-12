@@ -1,0 +1,1 @@
+{"src": "code/04-porty/pb2.c", "dst": "04-porty/pb2__nomask.c", "replace": [["  PORTB=Mas[n] | 0x04;                  // горит светодиод n; 1 в бите 2 сохраняет подтяжку PB2", "  PORTB=Mas[n];                         // мутант: бит 2 затирается, подтяжки PB2 нет"]]}

@@ -1,0 +1,2 @@
+{"src": "code/11-signaly/pwm.c", "dst": "11-signaly/pwm__needle.c",
+ "replace": [["if(level==0)", "if(level==99)"]]}

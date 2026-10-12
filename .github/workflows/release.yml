@@ -1,0 +1,46 @@
+# Релиз по тегу v* (например: git tag v1.0 && git push origin v1.0):
+# тесты, затем zip со всеми программами в Windows-1251 для AVR Studio 4, zip прикладывается к релизу.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Установить avr-gcc и avr-libc
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-avr avr-libc binutils-avr
+
+      - name: Тесты (sh tests/run.sh)
+        env:
+          MODE: native
+        run: sh tests/run.sh
+
+      - name: Собрать zip в Windows-1251
+        run: python3 tools/make_zip.py "$GITHUB_REF_NAME"
+
+      - name: Создать релиз и приложить zip
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          zip=dist/atmega16-praktikum-cp1251.zip
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$tag" "$zip" --clobber --repo "$GITHUB_REPOSITORY"
+          else
+            gh release create "$tag" "$zip" --repo "$GITHUB_REPOSITORY" --title "$tag" \
+              --notes "Программы курса в кодировке Windows-1251 с переводами строк CRLF для AVR Studio 4. Как открыть: README.txt внутри архива и глава 2 курса."
+          fi

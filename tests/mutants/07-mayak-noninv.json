@@ -1,0 +1,10 @@
+{
+ "src": "code/07-tajmery/mayak.c",
+ "dst": "07-tajmery/mayak__noninv.c",
+ "replace": [
+  [
+   "TCCR1A|= (1<<COM1A1)|(1<<COM1A0)|(1<<WGM11); // инверсный ШИМ на OC1A; WGM11 - часть режима 14",
+   "TCCR1A|= (1<<COM1A1)|(1<<WGM11);        // мутант: прямой ШИМ (COM1A0 забыт)"
+  ]
+ ]
+}

@@ -1,0 +1,21 @@
+# В репозитории все текстовые файлы в UTF-8 с переводами строк LF, в том числе после
+# клонирования в Windows. Файлы в Windows-1251 с CRLF для AVR Studio 4 собирает
+# tools/make_zip.py (zip в разделе Releases).
+* text=auto eol=lf
+
+*.c    text eol=lf diff=cpp
+*.h    text eol=lf diff=cpp
+*.md   text eol=lf diff=markdown
+*.py   text eol=lf diff=python
+*.sh   text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+*.txt  text eol=lf
+
+*.png  binary
+*.jpg  binary
+*.pdf  binary
+*.zip  binary
+
+# подсветка на GitHub: .h в этом курсе - заголовки Си, а не C++
+*.h linguist-language=C

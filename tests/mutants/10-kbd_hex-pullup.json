@@ -1,0 +1,2 @@
+{"src": "code/10-klaviatura/kbd_hex.c", "dst": "10-klaviatura/kbd_hex__pullup.c",
+ "replace": [["PORTB=0xEC;", "PORTB=0xE0;"]]}

@@ -1,0 +1,3 @@
+{"src": "code/11-signaly/pwm.c", "dst": "11-signaly/pwm__mask.c",
+ "replace": [["char Mas[4]={0xE8,0xD8,0xB8,0x78};", "char Mas[4]={0xE0,0xD0,0xB0,0x70};"],
+             ["PORTB=0xF8;", "PORTB=0xF0;"]]}

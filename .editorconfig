@@ -1,0 +1,26 @@
+# Настройки редактора для этого репозитория (https://editorconfig.org)
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# программы курса: только пробелы (табуляцию запрещает tests/check_docs.py), отступ 2,
+# комментарии к строкам с 41-й колонки
+[*.{c,h}]
+indent_size = 2
+max_line_length = 120
+
+[*.py]
+indent_size = 4
+
+# два пробела в конце строки в markdown означают перенос, не трогать
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

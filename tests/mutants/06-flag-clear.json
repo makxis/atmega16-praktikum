@@ -1,0 +1,10 @@
+{
+ "src": "code/06-preryvaniya/flag.c",
+ "dst": "06-preryvaniya/flag__clear.c",
+ "replace": [
+  [
+   "//GIFR=(1<<INTF0);                      // задание: уберите // в начале строки - нажатия до sei() забудутся",
+   "GIFR=(1<<INTF0);                        // вариант задания: флаг сброшен перед sei()"
+  ]
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "src": "code/06-preryvaniya/int0.c",
+ "dst": "06-preryvaniya/int0__nopull.c",
+ "replace": [
+  [
+   "PORTD=0x04;                             // подтяжка на PD2: отпущена = 1, нажата = 0",
+   "PORTD=0x00;                             // мутант: подтяжки на PD2 нет"
+  ]
+ ]
+}

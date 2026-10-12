@@ -1,0 +1,31 @@
+# рабочие файлы тестов: tests/prepare.py пересоздаёт их при каждом запуске
+tests/.work/
+run.log
+
+# zip для AVR Studio 4: собирается tools/make_zip.py и прикладывается к релизу
+dist/
+
+# результаты сборки avr-gcc и AVR Studio 4 (папка default/ внутри проекта Studio)
+*.elf
+*.hex
+*.eep
+*.lss
+*.map
+*.sym
+*.o
+*.d
+default/
+*.aws
+
+# Python
+__pycache__/
+*.pyc
+
+# редакторы и система
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
