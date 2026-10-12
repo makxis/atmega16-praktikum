@@ -506,4 +506,4 @@ TCCR1B|= (1<<WGM13)|(1<<WGM12)|(1<<CS12); // WGM13, WGM12 - остальное �
 
 </details>
 
-[← 6. Прерывания](06-preryvaniya.md) · [Оглавление](../README.md) · [8. часы MM:SS →](08-chasy.md)
+[← 6. Прерывания](06-preryvaniya.md) · [Оглавление](../README.md) · [8. Часы MM:SS →](08-chasy.md)
