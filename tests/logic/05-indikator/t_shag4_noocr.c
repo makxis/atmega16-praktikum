@@ -1,4 +1,4 @@
-/* Мутант shag4.c без OCR1A=31249 (tests/mutants/05-shag4-noocr.json): тот же "камень", что в Shasi.c. */
+/* Мутант shag4.c без OCR1A=31249 (tests/mutants/05-shag4-noocr.json): та же ошибка, что в Shasi.c (задание 1 главы 8). */
 #include "sim.h"
 #include "05-indikator/shag4__noocr.c"
 int main(void){
